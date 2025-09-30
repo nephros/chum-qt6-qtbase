@@ -437,6 +437,8 @@ rm %{buildroot}/%{_bindir}/qmake
 %{_qt6_libdir}/cmake/Qt6Sql/Qt6Sql*.cmake
 %{_qt6_libdir}/cmake/Qt6Sql/Qt6QSQLiteDriverPlugin*.cmake
 %{_qt6_libdir}/cmake/Qt6Test/*.cmake
+%{_qt6_libdir}/cmake/Qt6TestInternalsPrivate/3rdparty/cmake/*.cmake
+%{_qt6_libdir}/cmake/Qt6TestInternalsPrivate/*.cmake
 %{_qt6_libdir}/cmake/Qt6Widgets/*.cmake
 %{_qt6_libdir}/cmake/Qt6WidgetsTools/*.cmake
 %{_qt6_libdir}/cmake/Qt6Xml/*.cmake
@@ -446,6 +448,7 @@ rm %{buildroot}/%{_bindir}/qmake
 %{_qt6_libdir}/libQt6EglFsKmsSupport.prl
 %{_qt6_libdir}/libQt6EglFsKmsSupport.so
 %{_qt6_libdir}/objects-RelWithDebInfo/ExampleIconsPrivate_resources_1/.qt/rcc/qrc_example_icons_init.cpp.o
+
 
 %exclude %{_qt6_libdir}/qt6/libexec/qt-android-runner.py
 
