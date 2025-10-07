@@ -13,6 +13,7 @@
 # filter plugin provides
 %global __provides_exclude_from ^%{_qt6_plugindir}/.*\\.so$
 
+%bcond_with vulkan
 
 Name: qt6-qtbase
 Summary: Qt6 - QtBase components
@@ -62,8 +63,10 @@ BuildRequires: pkgconfig(libproxy-1.0)
 BuildRequires: pkgconfig(xkbcommon)
 BuildRequires: perl
 BuildRequires: python3-base
-BuildRequires: vulkan-headers
 BuildRequires: wayland-devel
+%if %{with vulkan}
+BuildRequires: vulkan-headers
+%endif
 
 
 Requires: %{name}-common = %{version}-%{release}
@@ -159,7 +162,6 @@ touch .git
  -DQT_FEATURE_dbus_linked=ON \
  -DQT_FEATURE_system_pcre2=ON \
  -DQT_FEATURE_system_sqlite=ON \
- -DQT_FEATURE_vulkan=ON \
  -DQT_FEATURE_wayland=ON \
  -DQT_FEATURE_forkfd_pidfd=OFF \
  -DBUILD_SHARED_LIBS=ON \
@@ -167,7 +169,11 @@ touch .git
  -DQT_INSTALL_EXAMPLES_SOURCES=OFF \
  -DQT_BUILD_TESTS=OFF \
  -DQT_QMAKE_TARGET_MKSPEC=%{_qt6_platform} \
- -DQT_AVOID_CMAKE_ARCHIVING_API=ON
+ -DQT_AVOID_CMAKE_ARCHIVING_API=ON \
+%if %{with vulkan}
+ -DQT_FEATURE_vulkan=ON \
+%endif
+ %{nil}
 
 %cmake_build
 
