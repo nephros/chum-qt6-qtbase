@@ -161,6 +161,7 @@ touch .git
  -DQT_FEATURE_system_sqlite=ON \
  -DQT_FEATURE_vulkan=ON \
  -DQT_FEATURE_wayland=ON \
+ -DQT_FEATURE_forkfd_pidfd=OFF \
  -DBUILD_SHARED_LIBS=ON \
  -DQT_BUILD_EXAMPLES=OFF \
  -DQT_INSTALL_EXAMPLES_SOURCES=OFF \
