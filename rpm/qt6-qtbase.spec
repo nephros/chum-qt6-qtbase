@@ -62,6 +62,7 @@ BuildRequires: pkgconfig(libproxy-1.0)
 BuildRequires: pkgconfig(xkbcommon)
 BuildRequires: perl
 BuildRequires: python3-base
+BuildRequires: vulkan-headers
 BuildRequires: wayland-devel
 
 
@@ -158,6 +159,7 @@ touch .git
  -DQT_FEATURE_dbus_linked=ON \
  -DQT_FEATURE_system_pcre2=ON \
  -DQT_FEATURE_system_sqlite=ON \
+ -DQT_FEATURE_vulkan=ON \
  -DQT_FEATURE_wayland=ON \
  -DBUILD_SHARED_LIBS=ON \
  -DQT_BUILD_EXAMPLES=OFF \
@@ -512,6 +514,8 @@ rm %{buildroot}/%{_bindir}/qmake
 %{_qt6_plugindir}/platforms/libqminimal.so
 %{_qt6_plugindir}/platforms/libqoffscreen.so
 %{_qt6_plugindir}/platforms/libqvnc.so
+%{_qt6_plugindir}/platforms/libqvkkhrdisplay.so
+
 # Platformthemes
 %{_qt6_plugindir}/platformthemes/libqxdgdesktopportal.so
 %{_qt6_plugindir}/printsupport/libcupsprintersupport.so
