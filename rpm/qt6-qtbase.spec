@@ -15,12 +15,11 @@
 
 %bcond_with vulkan
 
-Name: qt6-qtbase
+Name:    qt6-qtbase
 Summary: Qt6 - QtBase components
 Version: 6.8.3
 Release: 0%{?dist}
 
-# See LGPL_EXCEPTIONS.txt, for exception details
 License: LGPL-3.0-only OR GPL-3.0-only WITH Qt-GPL-exception-1.0
 Url:     http://qt-project.org/
 Source0: %{name}-%{version}.tar.bz2
@@ -160,7 +159,7 @@ touch .git
  -DFEATURE_sse2=OFF \
  -DQT_FEATURE_icu=ON \
  -DQT_FEATURE_enable_new_dtags=ON \
- -DFEATURE_emojisegmenter=ON \
+  \
  -DQT_FEATURE_journald=ON \
  -DQT_FEATURE_openssl_linked=ON \
  -DQT_FEATURE_openssl_hash=OFF \
