@@ -44,39 +44,52 @@ Patch102: CVE-2025-5455-qtbase-6.8.patch
 
 
 BuildRequires: qt6-rpm-macros
+BuildRequires: cmake
+BuildRequires: ninja
 BuildRequires: cups-devel
 BuildRequires: desktop-file-utils
 BuildRequires: findutils
 BuildRequires: libjpeg-devel
 BuildRequires: libmng-devel
 BuildRequires: libtiff-devel
+BuildRequires: pkgconfig(libzstd)
+BuildRequires: pkgconfig(mtdev)
 BuildRequires: pkgconfig(alsa)
 BuildRequires: pkgconfig(dbus-1)
 BuildRequires: pkgconfig(libdrm)
-BuildRequires: pkgconfig(egl)
 BuildRequires: pkgconfig(fontconfig)
-BuildRequires: pkgconfig(freetype2)
+#BuildRequires: pkgconfig(gl)
 BuildRequires: pkgconfig(glib-2.0)
+#BuildRequires: pkgconfig(gtk+-3.0)
+BuildRequires: pkgconfig(libproxy-1.0)
 BuildRequires: pkgconfig(libsctp)
+## xcb-sm
+#BuildRequires: pkgconfig(ice) pkgconfig(sm)
 BuildRequires: pkgconfig(libpng)
-BuildRequires: pkgconfig(udev)
-BuildRequires: pkgconfig(mtdev)
-BuildRequires: pkgconfig(libxslt)
+BuildRequires: pkgconfig(libudev)
 BuildRequires: pkgconfig(openssl)
 BuildRequires: pkgconfig(libpulse) pkgconfig(libpulse-mainloop-glib)
-BuildRequires: pkgconfig(libsystemd)
+
+BuildRequires: pkgconfig(xkbcommon)
+
+BuildRequires: pkgconfig(egl)
+BuildRequires: pkgconfig(gbm)
 BuildRequires: pkgconfig(glesv2)
+BuildRequires: wayland-devel
 BuildRequires: pkgconfig(sqlite3) >= 3.7
 BuildRequires: pkgconfig(harfbuzz) >= 0.9.42
 BuildRequires: pkgconfig(icu-i18n)
+BuildRequires: pkgconfig(libpcre2-16) >= 10.20
+
+#BuildRequires: pkgconfig(xcb-xkb)
+#BuildRequires: pkgconfig(xcb) pkgconfig(xcb-glx) pkgconfig(xcb-icccm) pkgconfig(xcb-image) pkgconfig(xcb-keysyms) pkgconfig(xcb-renderutil) pkgconfig(xcb-cursor)
 BuildRequires: pkgconfig(zlib)
-BuildRequires: pkgconfig(libzstd)
-BuildRequires: pkgconfig(gbm)
-BuildRequires: pkgconfig(libproxy-1.0)
-BuildRequires: pkgconfig(xkbcommon)
 BuildRequires: perl
+#BuildRequires: perl-generators
 BuildRequires: python3-base
-BuildRequires: wayland-devel
+BuildRequires: qt6-rpm-macros
+
+BuildRequires: pkgconfig(libsystemd)
 
 
 Requires: %{name}-common = %{version}-%{release}
