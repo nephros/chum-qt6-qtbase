@@ -13,8 +13,6 @@
 # filter plugin provides
 %global __provides_exclude_from ^%{_qt6_plugindir}/.*\\.so$
 
-# FIXME: should be in macros.qt6
-%global %_qt6_descriptionsdir %_qt6_descriptionsdir %{_qt6_archdatadir}/modules
 
 %bcond_with vulkan
 
