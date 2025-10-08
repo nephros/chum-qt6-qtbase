@@ -167,9 +167,9 @@ touch .git
  -DQT_FEATURE_system_png=ON \
  -DQT_FEATURE_system_zlib=ON \
  -DFEATURE_sql_ibase=OFF \
- -DFEATURE_sql_odbc=ON \
- -DFEATURE_sql_mysql=ON \
- -DFEATURE_sql_psql=ON \
+ -DFEATURE_sql_odbc=OFF \
+ -DFEATURE_sql_mysql=OFF \
+ -DFEATURE_sql_psql=OFF \
  -DQT_FEATURE_sql_sqlite=ON \
  -DQT_FEATURE_rpath=OFF \
  -DQT_FEATURE_zstd=ON \
