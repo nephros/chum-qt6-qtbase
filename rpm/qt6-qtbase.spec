@@ -199,6 +199,32 @@ touch .git
 mkdir -p %{buildroot}%{_qt6_datadir}
 install -m644 -p -D %{SOURCE1} %{buildroot}%{_qt6_datadir}/qtlogging.ini
 
+# Qt6.pc
+mkdir -p %{buildroot}%{_libdir}/pkgconfig
+cat << EOF > %{buildroot}%{_libdir}/pkgconfig/Qt6.pc
+prefix=%{_qt6_prefix}
+archdatadir=%{_qt6_archdatadir}
+bindir=%{_qt6_bindir}
+datadir=%{_qt6_datadir}
+
+docdir=%{_qt6_docdir}
+examplesdir=%{_qt6_examplesdir}
+headerdir=%{_qt6_headerdir}
+importdir=%{_qt6_importdir}
+libdir=%{_qt6_libdir}
+libexecdir=%{_qt6_libexecdir}
+moc=%{_qt6_libexecdir}/moc
+plugindir=%{_qt6_plugindir}
+qmake=%{_qt6_bindir}/qmake
+settingsdir=%{_qt6_settingsdir}
+sysconfdir=%{_qt6_sysconfdir}
+translationdir=%{_qt6_translationdir}
+
+Name: Qt6
+Description: Qt6 Configuration
+Version: 6.8.3
+EOF
+
 # rpm macros
 install -p -m644 -D %{SOURCE10} \
   %{buildroot}%{rpm_macros_dir}/macros.qt6-qtbase
