@@ -28,6 +28,9 @@ Source1: qtlogging.ini
 # macros
 Source10: macros.qt6-qtbase
 
+Patch1:  qtbase-CMake-Install-objects-files-into-ARCHDATADIR.patch
+Patch2:  qtbase-use-only-major-minor-for-private-api-tag.patch
+
 Patch10: 0010-disable-arm32-pixman-simd.patch
 
 # upstream patches
