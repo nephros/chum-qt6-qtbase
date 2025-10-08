@@ -148,8 +148,10 @@ touch .git
  -DQT_FEATURE_accessibility=ON \
  -DQT_FEATURE_fontconfig=ON \
  -DQT_FEATURE_glib=ON \
+ -DFEATURE_sse2=OFF \
  -DQT_FEATURE_icu=ON \
  -DQT_FEATURE_enable_new_dtags=ON \
+ -DFEATURE_emojisegmenter=ON \
  -DQT_FEATURE_journald=ON \
  -DQT_FEATURE_openssl_linked=ON \
  -DQT_FEATURE_openssl_hash=OFF \
@@ -161,6 +163,10 @@ touch .git
  -DQT_FEATURE_system_jpeg=ON \
  -DQT_FEATURE_system_png=ON \
  -DQT_FEATURE_system_zlib=ON \
+ -DFEATURE_sql_ibase=OFF \
+ -DFEATURE_sql_odbc=ON \
+ -DFEATURE_sql_mysql=ON \
+ -DFEATURE_sql_psql=ON \
  -DQT_FEATURE_sql_sqlite=ON \
  -DQT_FEATURE_rpath=OFF \
  -DQT_FEATURE_zstd=ON \
@@ -168,16 +174,16 @@ touch .git
  -DQT_FEATURE_dbus_linked=ON \
  -DQT_FEATURE_system_pcre2=ON \
  -DQT_FEATURE_system_sqlite=ON \
- -DQT_FEATURE_wayland=ON \
- -DQT_FEATURE_egl_x11=OFF \
- -DQT_FEATURE_eglfs_x11=OFF \
- -DQT_FEATURE_forkfd_pidfd=OFF \
  -DBUILD_SHARED_LIBS=ON \
  -DQT_BUILD_EXAMPLES=OFF \
  -DQT_INSTALL_EXAMPLES_SOURCES=OFF \
  -DQT_BUILD_TESTS=OFF \
  -DQT_QMAKE_TARGET_MKSPEC=%{_qt6_platform} \
  -DQT_AVOID_CMAKE_ARCHIVING_API=ON \
+ -DQT_FEATURE_wayland=ON \
+ -DQT_FEATURE_egl_x11=OFF \
+ -DQT_FEATURE_eglfs_x11=OFF \
+ -DQT_FEATURE_forkfd_pidfd=OFF \
 %if %{with vulkan}
  -DQT_FEATURE_vulkan=ON \
 %endif
