@@ -26,7 +26,16 @@ Source1: qtlogging.ini
 # macros
 Source10: macros.qt6-qtbase
 
+Patch1:  qtbase-CMake-Install-objects-files-into-ARCHDATADIR.patch
+Patch2:  qtbase-use-only-major-minor-for-private-api-tag.patch
+
 Patch10: 0010-disable-arm32-pixman-simd.patch
+
+# namespace QT_VERSION_CHECK to workaround major/minor being pre-defined (#1396755)
+Patch50: qtbase-version-check.patch
+
+# drop -O3 and make -O2 by default
+Patch54: qtbase-cxxflag.patch
 
 # upstream patches
 Patch100: CVE-2025-3512-qtbase-6.8.patch
