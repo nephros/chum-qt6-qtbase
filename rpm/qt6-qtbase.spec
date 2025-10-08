@@ -13,6 +13,7 @@
 # filter plugin provides
 %global __provides_exclude_from ^%{_qt6_plugindir}/.*\\.so$
 
+%bcond_with vulkan
 
 Name:    qt6-qtbase
 Summary: Qt6 - QtBase components
@@ -71,6 +72,10 @@ BuildRequires: pkgconfig(openssl)
 BuildRequires: pkgconfig(libpulse) pkgconfig(libpulse-mainloop-glib)
 
 BuildRequires: pkgconfig(xkbcommon)
+
+%if %{with vulkan}
+BuildRequires: vulkan-headers
+%endif
 
 BuildRequires: pkgconfig(egl)
 BuildRequires: pkgconfig(gbm)
@@ -201,6 +206,9 @@ touch .git
  -DQT_FEATURE_egl_x11=OFF \
  -DQT_FEATURE_eglfs_x11=OFF \
  -DQT_FEATURE_forkfd_pidfd=OFF \
+%if %{with vulkan}
+ -DQT_FEATURE_vulkan=ON \
+%endif
  %{nil}
 
 %cmake_build
