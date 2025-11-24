@@ -80,6 +80,7 @@ BuildRequires: pkgconfig(sqlite3) >= 3.7
 BuildRequires: pkgconfig(harfbuzz) >= 0.9.42
 BuildRequires: pkgconfig(icu-i18n)
 BuildRequires: pkgconfig(libpcre2-16) >= 10.20
+BuildRequires: vulkan-headers
 
 #BuildRequires: pkgconfig(xcb-xkb)
 #BuildRequires: pkgconfig(xcb) pkgconfig(xcb-glx) pkgconfig(xcb-icccm) pkgconfig(xcb-image) pkgconfig(xcb-keysyms) pkgconfig(xcb-renderutil) pkgconfig(xcb-cursor)
@@ -202,6 +203,7 @@ touch .git
  -DQT_FEATURE_egl_x11=OFF \
  -DQT_FEATURE_eglfs_x11=OFF \
  -DQT_FEATURE_forkfd_pidfd=OFF \
+ -DQT_FEATURE_vulkan=ON \
  %{nil}
 
 %cmake_build
@@ -623,6 +625,7 @@ rm %{buildroot}/%{_bindir}/androidtestrunner
 %{_qt6_plugindir}/platforms/libqoffscreen.so
 #%%{_qt6_plugindir}/platforms/libqxcb.so
 %{_qt6_plugindir}/platforms/libqvnc.so
+%{_qt6_plugindir}/platforms/libqvkkhrdisplay.so
 # Platformthemes
 %{_qt6_plugindir}/platformthemes/libqxdgdesktopportal.so
 #%%{_qt6_plugindir}/platformthemes/libqgtk3.so
