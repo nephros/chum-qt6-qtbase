@@ -115,6 +115,7 @@ Requires: %{name}-gui%{?_isa}
 Requires: libEGL-devel
 Requires: pkgconfig(glesv2)
 Requires: pkgconfig(xkbcommon)
+Requires: vulkan-headers
 Requires: qt6-rpm-macros
 Requires: clang >= 3.7.0
 %description devel
