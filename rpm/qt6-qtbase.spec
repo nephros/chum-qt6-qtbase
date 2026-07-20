@@ -14,6 +14,8 @@
 %global __provides_exclude_from ^%{_qt6_plugindir}/.*\\.so$
 
 
+%bcond_with vulkan
+
 Name:    qt6-qtbase
 Summary: Qt6 - QtBase components
 Version: 6.8.4
@@ -72,6 +74,10 @@ BuildRequires: pkgconfig(libpulse) pkgconfig(libpulse-mainloop-glib)
 
 BuildRequires: pkgconfig(xkbcommon)
 
+%if %{with vulkan}
+BuildRequires: vulkan-headers
+%endif
+
 BuildRequires: pkgconfig(egl)
 BuildRequires: pkgconfig(gbm)
 BuildRequires: pkgconfig(glesv2)
@@ -80,7 +86,6 @@ BuildRequires: pkgconfig(sqlite3) >= 3.7
 BuildRequires: pkgconfig(harfbuzz) >= 0.9.42
 BuildRequires: pkgconfig(icu-i18n)
 BuildRequires: pkgconfig(libpcre2-16) >= 10.20
-BuildRequires: vulkan-headers
 
 #BuildRequires: pkgconfig(xcb-xkb)
 #BuildRequires: pkgconfig(xcb) pkgconfig(xcb-glx) pkgconfig(xcb-icccm) pkgconfig(xcb-image) pkgconfig(xcb-keysyms) pkgconfig(xcb-renderutil) pkgconfig(xcb-cursor)
@@ -116,9 +121,12 @@ Requires: %{name}-gui%{?_isa}
 Requires: libEGL-devel
 Requires: pkgconfig(glesv2)
 Requires: pkgconfig(xkbcommon)
-Requires: vulkan-headers
 Requires: qt6-rpm-macros
 Requires: clang >= 3.7.0
+%if %{with vulkan}
+Requires: vulkan-headers
+%endif
+
 %description devel
 %{summary}.
 
@@ -204,7 +212,9 @@ touch .git
  -DQT_FEATURE_egl_x11=OFF \
  -DQT_FEATURE_eglfs_x11=OFF \
  -DQT_FEATURE_forkfd_pidfd=OFF \
+%if %{with vulkan}
  -DQT_FEATURE_vulkan=ON \
+%endif
  %{nil}
 
 %cmake_build
@@ -626,7 +636,9 @@ rm %{buildroot}/%{_bindir}/androidtestrunner
 %{_qt6_plugindir}/platforms/libqoffscreen.so
 #%%{_qt6_plugindir}/platforms/libqxcb.so
 %{_qt6_plugindir}/platforms/libqvnc.so
+%if %{with vulkan}
 %{_qt6_plugindir}/platforms/libqvkkhrdisplay.so
+%endif
 # Platformthemes
 %{_qt6_plugindir}/platformthemes/libqxdgdesktopportal.so
 #%%{_qt6_plugindir}/platformthemes/libqgtk3.so
